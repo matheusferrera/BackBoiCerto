@@ -25,8 +25,8 @@ async function updateProduto(req,res) {
 
 async function getProduto(req,res) {
     try {
-        let insertData = req.body
-        const data = await produtoService.getProduto(insertData)
+        const data = await produtoService.getProduto(req.params.id)
+        console.log("CONTROLEEER ----->" + data)
         res.send(data)
 
     } catch(err) {

@@ -4,7 +4,7 @@ import cors from "cors"
 
 
 const app = express()
-app.use(express.json())
+// app.use(express.json())
 app.use(cors())
 
 
@@ -17,7 +17,7 @@ app.use("/produto", routerProduto)
 
 app.listen(3000, async () => { //Criacao do arquivo para armazenar dados
     try {
-        console.log("api rodando")
+        console.log("MongoDB rodando com sucesso em: localhost:3000")
     } catch(err){
         console.log(err)
     }

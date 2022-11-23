@@ -9,7 +9,9 @@ async function updateProduto(params) {
 }
 
 async function getProduto(params) {
+    console.log("SERVICEEEEE  --> " + await produtoRepository.getProduto(params))
     return await produtoRepository.getProduto(params)
+    
 }
 
 export default {createProduto, updateProduto, getProduto}

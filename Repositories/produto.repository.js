@@ -27,13 +27,25 @@ async function updateProduto(params) {
 
 async function getProduto(params) {
     const client = getClient()
+
     try {
         await client.connect()
-        return await client.db("boiCerto").collection("boi").findOne({idProduto: params.idProduto})
+        const pesquisa = new RegExp(`${params}`);
+        
+        async function getResults() {
+            return  await client.db("boiCerto").collection("boi").find( { "raca": { $regex: pesquisa }}).toArray()
+        }
+        const results = await getResults();
+        console.log("RESULTADO -> " + results)
+        return results
+
+
     } catch (err) {
         throw err
     } finally {
-        await client.close()
+        
+        setTimeout(() => { client.close() }, 1500)
+       
     }
 }
 
