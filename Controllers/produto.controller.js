@@ -17,7 +17,7 @@ async function updateProduto(req,res) {
         let insertData = req.body
         const data = await produtoService.updateProduto(insertData)
         res.send(data)
-
+        
     } catch(err) {
         res.send(err)
     }
@@ -25,14 +25,15 @@ async function updateProduto(req,res) {
 
 async function getProduto(req,res) {
     try {
-        const data = await produtoService.getProduto(req.params.id)
-        console.log("CONTROLEEER ----->" + data)
+        console.log("Controller post  -->" + JSON.stringify(req.body))
+        const data = await produtoService.getProduto(req.body)
         res.send(data)
-
     } catch(err) {
         res.send(err)
     }
 }
+
+
 
 
 export default { createProduto, updateProduto, getProduto }

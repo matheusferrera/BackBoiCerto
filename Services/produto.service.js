@@ -9,7 +9,7 @@ async function updateProduto(params) {
 }
 
 async function getProduto(params) {
-    console.log("SERVICEEEEE  --> " + await produtoRepository.getProduto(params))
+    console.log("SERVICE --> " + JSON.stringify(params))
     return await produtoRepository.getProduto(params)
     
 }
